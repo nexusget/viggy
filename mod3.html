@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3: CSS – Styling the Web</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 10px;
+      text-align: center;
+    }
+    header h1 {
+      color: #4caf50;
+      margin: 0;
+    }
+    .notes {
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-bottom: 1px solid #333;
+    }
+    .notes h2 {
+      color: #4caf50;
+    }
+    .editor-container {
+      display: flex;
+      flex: 1;
+      /* overflow: hidden; */
+    }
+    .editor {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: #1e1e1e;
+      /* overflow-y: auto; */
+      height: max-content;
+    }
+    .editor textarea {
+      margin: 5px 0;
+      background-color: #121212;
+      color: #4caf50;
+      border: 1px solid #333;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      resize: none;
+      height: calc(40vh - 20px); /* Adjust height to fit within the container */
+    }
+    .output {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: #1e1e1e;
+      padding: 10px;
+    }
+    .output iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background-color: #fff;
+    }
+    .fullscreen-btn {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .fullscreen-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Code Editor</h1>
+  </header>
+
+  <!-- Notes Section -->
+  <div class="notes">
+    <h2>📝 Notes:</h2>
+    <p>CSS = Cascading Style Sheets</p>
+    <p>Adds style to HTML</p>
+    <p>Can be inline, internal, or external</p>
+    <p>Topics:</p>
+    <ul>
+      <li>Selectors: element, .class, #id</li>
+      <li>Colors, Fonts, Sizes</li>
+      <li>Box model (margin, border, padding)</li>
+      <li>Display: block, inline, flex, grid</li>
+      <li>Positioning: relative, absolute, fixed</li>
+      <li>Media Queries (for responsive design)</li>
+    </ul>
+  </div>
+
+  <div class="editor-container">
+    <!-- Editor Section -->
+    <div class="editor">
+      <h3>HTML</h3>
+      <textarea id="html-code">
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: darkblue;
+    }
+    p {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Styled Page</h1>
+  <p>This is a styled paragraph.</p>
+</body>
+</html>
+      </textarea>
+      <h3>CSS</h3>
+      <textarea id="css-code">
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: darkblue;
+}
+p {
+  color: #333;
+}
+      </textarea>
+      <h3>JavaScript</h3>
+      <textarea id="js-code">
+console.log('Hello, World!');
+      </textarea>
+    </div>
+
+    <!-- Output Section -->
+    <div class="output">
+      <iframe id="output-frame"></iframe>
+      <button class="fullscreen-btn" id="fullscreen-btn">Fullscreen Output</button>
+    </div>
+  </div>
+
+  <script>
+    const htmlCode = document.getElementById('html-code');
+    const cssCode = document.getElementById('css-code');
+    const jsCode = document.getElementById('js-code');
+    const outputFrame = document.getElementById('output-frame');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    function updateOutput() {
+  const html = htmlCode.value;
+  const css = `<style>${cssCode.value}</style>`;
+  const js = `<script>${jsCode.value}<\/script>`;
+  const fullDocument = `
+    <!DOCTYPE html>
+    <html>
+    <head>${css}</head>
+    <body>${html}${js}</body>
+    </html>
+  `;
+  outputFrame.srcdoc = fullDocument;
+}
+
+    // Add event listeners to update output on input
+    htmlCode.addEventListener('input', updateOutput);
+    cssCode.addEventListener('input', updateOutput);
+    jsCode.addEventListener('input', updateOutput);
+
+    // Fullscreen functionality
+    fullscreenBtn.addEventListener('click', () => {
+      if (outputFrame.requestFullscreen) {
+        outputFrame.requestFullscreen();
+      } else if (outputFrame.webkitRequestFullscreen) {
+        outputFrame.webkitRequestFullscreen(); // Safari
+      } else if (outputFrame.msRequestFullscreen) {
+        outputFrame.msRequestFullscreen(); // IE/Edge
+      }
+    });
+
+    // Initialize the iframe with default content
+    updateOutput();
+  </script>
+</body>
+</html>

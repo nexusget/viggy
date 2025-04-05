@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2: HTML - Structure of the Web</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      font-family: 'Arial', sans-serif;
+    }
+    .code-block {
+      background-color: #2d2d2d;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+  <!-- Header -->
+  <header class="text-center mb-8">
+    <h1 class="text-4xl font-bold text-indigo-400">Module 2: HTML – Structure of the Web</h1>
+    <p class="text-lg text-gray-300 mt-2">Learn the building blocks of the web!</p>
+    <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" alt="HTML GIF" class="mt-4 mx-auto w-48 hover-scale">
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl w-full">
+    <!-- Notes Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-indigo-300 mb-4">📝 Notes</h2>
+      <ul class="list-disc list-inside text-gray-200 space-y-2">
+        <li>HTML stands for <span class="text-yellow-400">HyperText Markup Language</span></li>
+        <li>HTML builds the <span class="text-yellow-400">structure</span> of a web page</li>
+        <li>Elements are made with tags like <code class="text-green-400">&lt;p&gt;</code>, <code class="text-green-400">&lt;h1&gt;</code>, <code class="text-green-400">&lt;a&gt;</code>, etc.</li>
+      </ul>
+    </section>
+
+    <!-- Code Example Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-indigo-300 mb-4">🧪 Code Example: Basic HTML Page</h2>
+      <pre class="code-block text-sm text-gray-100"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;This is my first web page.&lt;/p&gt;
+  &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <button id="copyBtn" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded hover-scale">Copy Code</button>
+    </section>
+
+    <!-- Topics Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-indigo-300 mb-4">✅ Topics Covered</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-800 p-4 rounded-lg hover-scale">
+          <h3 class="text-xl text-yellow-400">Headings</h3>
+          <p class="text-gray-300">Tags: <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></p>
+          <img src="https://dummyimage.com/150x150/4a5568/e0e0e0&text=Headings" alt="Headings Example" class="mt-2 rounded">
+        </div>
+        <div class="bg-gray-800 p-4 rounded-lg hover-scale">
+          <h3 class="text-xl text-yellow-400">Paragraphs</h3>
+          <p class="text-gray-300">Tag: <code>&lt;p&gt;</code></p>
+          <img src="https://dummyimage.com/150x150/4a5568/e0e0e0&text=Paragraphs" alt="Paragraphs Example" class="mt-2 rounded">
+        </div>
+        <div class="bg-gray-800 p-4 rounded-lg hover-scale">
+          <h3 class="text-xl text-yellow-400">Links</h3>
+          <p class="text-gray-300">Tag: <code>&lt;a href=""&gt;</code></p>
+          <img src="https://dummyimage.com/150x150/4a5568/e0e0e0&text=Links" alt="Links Example" class="mt-2 rounded">
+        </div>
+        <div class="bg-gray-800 p-4 rounded-lg hover-scale">
+          <h3 class="text-xl text-yellow-400">Images</h3>
+          <p class="text-gray-300">Tag: <code>&lt;img src="..." alt="..."&gt;</code></p>
+          <img src="https://dummyimage.com/150x150/4a5568/e0e0e0&text=Images" alt="Images Example" class="mt-2 rounded">
+        </div>
+        <div class="bg-gray-800 p-4 rounded-lg hover-scale">
+          <h3 class="text-xl text-yellow-400">Lists</h3>
+          <p class="text-gray-300">Tags: <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></p>
+          <img src="https://dummyimage.com/150x150/4a5568/e0e0e0&text=Lists" alt="Lists Example" class="mt-2 rounded">
+        </div>
+        <div class="bg-gray-800 p-4 rounded-lg hover-scale">
+          <h3 class="text-xl text-yellow-400">Forms & Tables</h3>
+          <p class="text-gray-300">Tags: <code>&lt;input&gt;</code>, <code>&lt;table&gt;</code>, etc.</p>
+          <img src="https://dummyimage.com/150x150/4a5568/e0e0e0&text=Forms" alt="Forms Example" class="mt-2 rounded">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-400 mt-8">
+    <p>Created with ❤️ using HTML, Tailwind CSS, and JavaScript</p>
+  </footer>
+
+  <!-- JavaScript for Copy Button -->
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const code = document.querySelector('pre code').textContent;
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(code).then(() => {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy Code';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
